@@ -1,0 +1,24 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+html,body{
+    background: #fff;
+    font-size: 62.5%;
+    font-family: Geome;
+    width: 100%;
+}
+.container{
+    max-width: 1220px;
+    width: 1220px;
+    min-width: 450px;
+    margin: 0 auto;
+}
+a{
+    text-decoration: none;
+    color: #000;
+}
+ul{
+    list-style: none;
+}
