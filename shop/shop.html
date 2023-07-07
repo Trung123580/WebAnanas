@@ -10,10 +10,10 @@
         <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
         <link rel="stylesheet" type="text/css"
             href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
-        <link rel="stylesheet" href="./detail.css">
+        <link rel="stylesheet" href="./shop.css">
         <link rel="stylesheet" href="../base.css">
-        <link rel="stylesheet" href="../responsive/responsiveDetail.css">
-        <title>Detail</title>
+        <link rel="stylesheet" href="../responsive/responsiveShop.css">
+        <title>Shop</title>
     </head>
 
     <body>
@@ -26,17 +26,17 @@
                 </div>
                 <ul class="header-list">
                     <li class="header-list_item">
-                        <a href="">
+                        <a href="#">
                             <img src="../img/icon-search.png" alt="">
                         </a>
                     </li>
                     <li class="header-list_item">
-                        <a href="">
+                        <a href="#">
                             <img src="../img/icon-map.png" alt="">
                         </a>
                     </li>
                     <li class="header-list_item">
-                        <a href="../shop/shop.html">
+                        <a href="#">
                             <img src="../img/icon-shop.png" alt="">
                         </a>
                     </li>
@@ -148,7 +148,7 @@
                         </a>
                     </div>
                     <div class="header-search_shop">
-                        <a href="../shop/shop.html">
+                        <a href="#">
                             <img src="../logo/icon_gio_hang.svg" alt="">
                             <span>Giỏ Hàng</span>
                         </a>
@@ -219,23 +219,47 @@
                 </form>
             </section>
             <section class="blur"></section>
-            <main class="detail">
+
+            <!-- shop-menu -->
+            <main class="shop">
                 <div class="container">
-                    <div class="detail-content">
-                        <div class="detail-header">
+                    <div class="shop-content">
+                        <div class="shop-content_product">
+                            <h3 class="shop-content_title">BẠN CÓ CẦN THÊM?</h3>
+                            <div class="shop-centent_bonus">
 
+                            </div>
+                            <h2 class="shop-content_header">
+                                GIỎ HÀNG
+                            </h2>
+                            <div class="shop-content_list">
+
+                            </div>
+                            <div class="shop-footer">
+                                <button type="submit">Xóa hết</button>
+                                <button type="submit">Quay lại mua hàng</button>
+                            </div>
                         </div>
-                        <div class="detail-main">
-
-                        </div>
-                    </div>
-
-                </div>
-                <div class="detail-related">
-                    <div class="container">
-                        <h1 class="detail-related_title">SẢN PHẨM LIÊN QUAN</h1>
-                        <div class="detail-related_content">
-
+                        <div class="shop-content_info">
+                            <h2 class="shop-info_title">ĐƠN HÀNG</h2>
+                            <div class="shop-info_promotion">
+                                <h3>NHẬP MÃ KHUYẾN MÃI</h3>
+                                <div class="shop-info_group">
+                                    <input type="text" name="" id="">
+                                    <button type="submit">ÁP DỤNG</button>
+                                </div>
+                            </div>
+                            <div class="bg-divider_info"></div>
+                            <div class="shop-info_price">
+                                <div> <span>Đơn hàng</span> <span class="shop-info_total">0</span></div>
+                                <div> <span>Giảm</span> <span class="shop-info_discount">0</span></div>
+                            </div>
+                            <div class="bg-divider_info"></div>
+                            <div class="shop-info_continue">
+                                <span>TẠM TÍNH</span>
+                                <h3 class="shop-info_relust">0</h3>
+                            </div>
+                            <button class="shop-info_btn" type="submit">TIẾP TỤC THANH TOÁN</button>
                         </div>
                     </div>
                 </div>
@@ -402,6 +426,7 @@
 
     <script src="../script.js"></script>
     <script src="./detail.js"></script>
+    <script src="./shop.js"></script>
     <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
     <script type="text/javascript" src="https://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
@@ -419,20 +444,20 @@
             });
         });
         $(document).ready(function () {
-            $('.detail-list').slick({
-                slidesToShow: 4,
-                slidesToScroll: 4,
-                infinite: false,
+            $('.shop-centent_bonus').slick({
+                slidesToShow: 2,
+                slidesToScroll: 2,
+                // infinite: false,
                 prevArrow: `<button type='button' class='slick-prev pull-left'><img class="prev-next" src="https://ananas.vn/wp-content/themes/ananas/fe-assets/images/arr_left.png" alt=""></button>`,
                 nextArrow: `<button type='button' class='slick-next pull-right'><img class="prev-next" src="	https://ananas.vn/wp-content/themes/ananas/fe-assets/images/arr_right.png" alt=""></button>`,
-                // autoplay: true,
-                // autoplaySpeed: 2000,
+                autoplay: true,
+                autoplaySpeed: 2000,
                 responsive: [
                     {
                         breakpoint: 768,
                         settings: {
-                            slidesToShow: 2,
-                            slidesToScroll: 2
+                            slidesToShow: 1,
+                            slidesToScroll: 1
                         }
                     },
                     {
@@ -446,33 +471,33 @@
             });
         });
 
-        $(document).ready(function () {
-            $('.detail-related_content').slick({
-                slidesToShow: 4,
-                slidesToScroll: 4,
-                infinite: false,
-                prevArrow: `<button type='button' class='slick-prev pull-left'><img class="prev-next" src="https://ananas.vn/wp-content/themes/ananas/fe-assets/images/arr_left.png" alt=""></button>`,
-                nextArrow: `<button type='button' class='slick-next pull-right'><img class="prev-next" src="	https://ananas.vn/wp-content/themes/ananas/fe-assets/images/arr_right.png" alt=""></button>`,
-                // autoplay: true,
-                // autoplaySpeed: 2000,
-                responsive: [
-                    {
-                        breakpoint: 768,
-                        settings: {
-                            slidesToShow: 2,
-                            slidesToScroll: 2
-                        }
-                    },
-                    {
-                        breakpoint: 992,
-                        settings: {
-                            slidesToShow: 2,
-                            slidesToScroll: 2
-                        }
-                    }
-                ]
-            });
-        });
+        // $(document).ready(function () {
+        //     $('.detail-related_content').slick({
+        //         slidesToShow: 4,
+        //         slidesToScroll: 4,
+        //         infinite: false,
+        //         prevArrow: `<button type='button' class='slick-prev pull-left'><img class="prev-next" src="https://ananas.vn/wp-content/themes/ananas/fe-assets/images/arr_left.png" alt=""></button>`,
+        //         nextArrow: `<button type='button' class='slick-next pull-right'><img class="prev-next" src="	https://ananas.vn/wp-content/themes/ananas/fe-assets/images/arr_right.png" alt=""></button>`,
+        //         // autoplay: true,
+        //         // autoplaySpeed: 2000,
+        //         responsive: [
+        //             {
+        //                 breakpoint: 768,
+        //                 settings: {
+        //                     slidesToShow: 2,
+        //                     slidesToScroll: 2
+        //                 }
+        //             },
+        //             {
+        //                 breakpoint: 992,
+        //                 settings: {
+        //                     slidesToShow: 2,
+        //                     slidesToScroll: 2
+        //                 }
+        //             }
+        //         ]
+        //     });
+        // });
     </script>
 
 </html>

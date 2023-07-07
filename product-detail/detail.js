@@ -800,7 +800,9 @@ const item = productList.map((item, index) => {
               </div>
               <div class="detail-group">
                 <div class="detail-group_add">
-                  <button type="" class="add">THÊM VÀO GIỎ HÀNG</button>
+                  <button type="submit" class="add" data-shop-item=${
+                    index + 1
+                  }>THÊM VÀO GIỎ HÀNG</button>
                     <div class="detail-group_img">
                       <img src=${
                         item.iconLove
@@ -1225,3 +1227,21 @@ const renderRelated = productRelated.map((item, index) => {
   `;
 });
 related.innerHTML = renderRelated.join('');
+
+//get data-shop localStorage
+const addItem = document.querySelector('.add');
+addItem.addEventListener('click', (event) => {
+  const data = event.currentTarget.dataset.shopItem;
+  let getSave = localStorage.getItem('shop-item');
+  if (getSave) {
+    getSave = JSON.parse(getSave);
+  } else {
+    getSave = [];
+  }
+  // console.log(getSave);
+  getSave.push(data);
+  localStorage.setItem('shop-item', JSON.stringify(getSave));
+
+  // const dataList =
+  //   event.target.parentElement.parentElement.parentElement.parentElement;
+});
