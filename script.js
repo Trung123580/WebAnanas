@@ -160,29 +160,6 @@ function renderText(text) {
     `;
   });
   new_hot.innerHTML = randomNew.join('');
-  // setInterval(() => {
-  //   const number1 = Math.floor(Math.random() * 4);
-  //   const random_new = text.map((item, index) => {
-  //     if (index === number1) {
-  //       return `
-  //             <a  href="${item.href}">${item.name}</a>
-  //           `;
-  //     }
-  //   });
-  //   new_hot.innerHTML = random_new.join('');
-  // }, 1500);
-  // clearInterval(() => {
-  //   const number1 = Math.floor(Math.random() * number.length);
-  //   const randomNumber = number[number1];
-  //   const random_new = text.map((item, index) => {
-  //     if (index === randomNumber) {
-  //       return `
-  //             <a href="1">${item.name}</a>
-  //           `;
-  //     }
-  //   });
-  //   new_hot.innerHTML = random_new.join('');
-  // });
 }
 renderText(list_new);
 
@@ -263,6 +240,7 @@ function iconClose() {
     });
   });
 }
+
 function App() {
   renderForm();
   showPass();

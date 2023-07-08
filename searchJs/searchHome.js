@@ -1,9 +1,5 @@
-const urlParams = new URLSearchParams(window.location.search); // lấy thông tin tử URL(data-product-id)
-const productId = urlParams.get('productId'); // get lấy đến id của data-product-id
-
-const searchParams = new URLSearchParams(window.location.search);
-const searchId = urlParams.get('searchId');
-const productList = [
+// search
+const productList_2 = [
   {
     id: null,
     img: 'https://ananas.vn/wp-content/uploads/Pro_A6T014_3.jpeg',
@@ -698,552 +694,95 @@ const productList = [
     code: 'AV00',
   },
 ];
-
-const img = document.querySelector('.detail-content');
-let isLike = true;
-const handleIconlove = (event) => {
-  if (isLike) {
-    const icon = productList[1].iconLove_hover;
-    event.setAttribute('src', icon);
-    isLike = false;
-  } else {
-    const icon = productList[1].iconLove;
-    event.setAttribute('src', icon);
-    isLike = true;
-  }
+const ulList = document.createElement('ul');
+ulList.style = `
+position: absolute;
+top:100%;
+z-index: 2;
+background: #4c4c4c;
+color:#fff;
+width: 35.5%;
+border-radius : 5px 5px 5px 4px;
+height: 400px;
+overflow-y: scroll;
+display: none;
+`;
+const headerSearch = document.querySelector('.header-search > form');
+const handleSearch = (e) => {
+  window.location.href = `./product-detail/detail.html?searchId=${e.textContent}`;
 };
-const item = productList.map((item, index) => {
-  if (index + 1 === Number(productId) || item.name === searchId) {
-    return `
-    <div class="detail-header">
-        <ul>
-            <li>
-              <a href="">Giày</a>
-            </li> 
-            <li>
-              <span class="carot"></span>
-            </li> 
-             <li>
-              <a href="">${item.note}</a>
-            </li>
-            <li>
-              <span class="carot"></span>
-            </li>
-             <li>
-              <a href="">${item.name}</a>
-            </li>    
-        </ul>
-    </div>
-      <div class="detail-main">
-            <div class="detail-product">
-              <div class="detail-first">
-                  <img src=${item.img} alt=${item.error}>
-                  <img src=${item.zoom} alt="">
-              </div>
-              <div class="detail-list">
-                  <div class="detail-list_item">
-                      <img src=${item.img} alt=${item.error}>
-                  </div>
-                  <div class="detail-list_item"> 
-                      <img src=${item.img_2} alt=${item.error}>
-                  </div>
-                  <div class="detail-list_item">
-                      <img src=${item.img_3} alt=${item.error}>
-                  </div>
-                  <div class="detail-list_item"> 
-                      <img src=${item.img_4} alt=${item.error}>
-                  </div>
-                  <div class="detail-list_item"> 
-                      <img src=${item.img_4} alt=${item.error}>
-                  </div>
-                  <div class="detail-list_item">
-                      <img src=${item.img_5} alt=${item.error}>
-                  </div>
-                  <div class="detail-list_item"> 
-                      <img src=${item.img_6} alt=${item.error}>
-                  </div>
-                  <div class="detail-list_item"> 
-                      <img src=${item.img_7} alt=${item.error}>
-                  </div>
-              </div>
-          </div>
-          <div class="detail-info">
-              <h3 class="detail-title">${item.name} - ${item.note}</h3>
-              <div class="detail-caption">
-                  <p>Mã sản phẩm:<span>${item.code}${Math.floor(
-      Math.random(item.code) * 1000
-    )}</span></p>
-                  ${
-                    index + 1 <= 7
-                      ? `<p>Tình trạng: <span>${item.title}</span></p>`
-                      : ''
-                  }
-              </div>
-              <span class="detail-price">${item.price}</span>
-              <div class="detail-color">
-                  <span></span>
-                  <span></span>
-              </div>
-              <div class="detail-numbers">
-                  <div>
-                      <h3>SIZE</h3>
-                      <button type"button" class="detail-size">
-                          <span></span>
-                          <img src="../logo/down-arrow.svg" alt="">
-                      </button>
-                  </div>
-                  <div>
-                      <h3>SỐ LƯỢNG</h3>
-                      <button type"button" class="detail-size">
-                          <span></span>
-                          <img src="../logo/down-arrow.svg" alt="">
-                      </button>
-                  </div>
-              </div>
-              <div class="detail-group">
-                <div class="detail-group_add">
-                  <button type="submit" class="add" data-shop-item=${
-                    index + 1
-                  }>THÊM VÀO GIỎ HÀNG</button>
-                    <div class="detail-group_img">
-                      <img src=${
-                        item.iconLove
-                      } onClick="handleIconlove(this)" alt=${
-      item.iconLove_hover
-    } />
-                    </div>
-                </div>
-                <a href="" class="detail-group_pay">THANH TOÁN</a>
-              </div>
-              <div class="detail-panel">
-                <div class="detail-panel_item ">
-                  <h3 class="detail-panel_title " >THÔNG TIN SẢN PHẨM <img src="../logo/down-arrow.svg" alt=""></h3>
-                  <ul>
-                    <li>
-                      Gender: Unisex
-                    </li>
-                    <li>
-                      Size run: 35 – 46
-                    </li>
-                    <li>
-                      Upper: Corduroy
-                    </li>
-                    <li>
-                      Outsole: Rubber
-                    </li>
-                    <li class="detail-panel_img">
-                      <img src="https://ananas.vn/wp-content/uploads/Ananas_SizeChart.jpg" alt="">
-                    </li>
-                  </ul>
-                </div>
-                  <div class="detail-panel_item">
-                  <h3 class="detail-panel_title">QUY ĐỊNH ĐỔI SẢN PHẨM <img src="../logo/down-arrow.svg" alt=""></h3>
-                    <ul>
-                      <li>Chỉ đổi hàng 1 lần duy nhất, mong bạn cân nhắc kĩ trước khi quyết định.</li>
-                      <li>Thời hạn đổi sản phẩm khi mua trực tiếp tại cửa hàng là 07 ngày, kể từ ngày mua. Đổi sản phẩm khi mua online là 14 ngày, kể từ ngày nhận hàng.</li>
-                      <li>Sản phẩm đổi phải kèm hóa đơn. Bắt buộc phải còn nguyên tem, hộp, nhãn mác.</li>
-                      <li>Sản phẩm đổi không có dấu hiệu đã qua sử dụng, không giặt tẩy, bám bẩn, biến dạng.</li>
-                      <li>Ananas chỉ ưu tiên hỗ trợ đổi size. Trong trường hợp sản phẩm hết size cần đổi, bạn có thể đổi sang 01 sản phẩm khác:<br>
-                      - Nếu sản phẩm muốn đổi ngang giá trị hoặc có giá trị cao hơn, bạn sẽ cần bù khoảng chênh lệch tại thời điểm đổi (nếu có).<br>
-                      - Nếu bạn mong muốn đổi sản phẩm có giá trị thấp hơn, chúng tôi sẽ không hoàn lại tiền.</li>
-                      <li>Trong trường hợp sản phẩm - size bạn muốn đổi không còn hàng trong hệ thống. Vui lòng chọn sản phẩm khác.</li>
-                      <li>Không hoàn trả bằng tiền mặt dù bất cứ trong trường hợp nào. Mong bạn thông cảm.</li>
-                    </ul>
-                </div>
-                  <div class="detail-panel_item ">
-                      <h3 class="detail-panel_title">BẢO HÀNH THẾ NÀO ? <img src="../logo/down-arrow.svg" alt=""></h3>
-                      <ul>
-                          <li> 
-                          Mỗi đôi giày Ananas trước khi xuất xưởng đều trải qua nhiều khâu kiểm tra. Tuy vậy, trong quá trình sử dụng, nếu nhận thấy các lỗi: gãy đế, hở đế, đứt chỉ may,...trong thời gian 6 tháng từ ngày mua hàng, mong bạn sớm gửi sản phẩm về Ananas nhằm giúp chúng tôi có cơ hội phục vụ bạn tốt hơn. Vui lòng gửi sản phẩm về bất kỳ cửa hàng Ananas nào, hoặc gửi đến trung tâm bảo hành Ananas ngay trong trung tâm TP.HCM trong giờ hành chính:
-                        </li>
-                        <li>
-                          Địa chỉ: 5C Tân Cảng, P.25, Q.Bình Thạnh , TP. Hồ Chí Minh.
-                          Hotline: 028 2211 0067
-                        </li>
-                      </ul>
-                </div>
-              </div>
-          </div>
-        </div>
-        
-    `;
-  }
-});
-img.innerHTML = item.join('');
-
-const detailItem = document.querySelectorAll('.detail-list_item > img');
-const detailFirst = document.querySelector('.detail-first > img');
-detailItem.forEach((item) => {
-  item.addEventListener('click', (event) => {
-    const firstImg = event.currentTarget.getAttribute('src');
-    detailFirst.setAttribute('src', firstImg);
-  });
+const filteredList = productList_2.filter((item, index) => {
+  return item.name !== productList_2[index + 1]?.name; //sử dụng toán tử Optional Chaining để kiểm tra xem phần tử tiếp theo có tồn tại => vì bắt đầu tìm kiếm index + 1 nên phần tử cuối cùng không tồn tại
 });
 
-const detailPanel = document.querySelectorAll('.detail-panel_item > h3');
-const panelIcon = document.querySelectorAll('.detail-panel_item > h3 > img');
-const listPanel = document.querySelectorAll('.detail-panel_item > ul');
-let isPannel = true;
-detailPanel.forEach((item, index) => {
-  item.addEventListener('click', (event) => {
-    if (isPannel) {
-      event.currentTarget.style.color = '#000';
-      listPanel[index].style.display = 'none';
-      panelIcon[index].style.rotate = '0deg';
-      isPannel = false;
-    } else {
-      isPannel = true;
-      panelIcon[index].style.rotate = '180deg';
-      event.currentTarget.style.color = 'red';
-      listPanel[index].style.display = 'block';
-    }
-  });
-});
-const productRelated = [
-  {
-    name: 'Vintas Flannel - High Top',
-    color: 'Cement',
-    sku: 'AV00118',
-    price: '720.000',
-    image: 'https://ananas.vn/wp-content/uploads/pro_AV00118_1.jpg',
-  },
-  {
-    name: 'Urbas Lego - Low Top',
-    color: 'Deep Mimosa',
-    sku: 'A61053',
-    price: '450.000',
-    image: 'https://ananas.vn/wp-content/uploads/pro_urbas_A61053_1-1.jpg',
-  },
-  {
-    name: 'Vintas Monoguso - Low Top',
-    color: 'Moonbeam/Green',
-    sku: 'AV00119',
-    price: '720.000',
-    image: 'https://ananas.vn/wp-content/uploads/Pro_AV00119_1.jpeg',
-  },
-  {
-    name: 'Basas Simple Life NE - High Top',
-    color: 'Black',
-    sku: 'AV00077',
-    price: '580.000',
-    image: 'https://ananas.vn/wp-content/uploads/Pro_AV00077_1.jpg',
-  },
-  {
-    name: 'Track 6 Utility Gum Sole - Low Top',
-    color: 'Navy Peony/Gum',
-    sku: 'A6T008',
-    price: '1.090.000',
-    image: 'https://ananas.vn/wp-content/uploads/pro_A67008_1.jpg',
-  },
-  {
-    name: 'Pattas Polka Dots - Low Top',
-    color: 'True Blue',
-    sku: 'AV00171',
-    price: '720.000',
-    image: 'https://ananas.vn/wp-content/uploads/pro_AV00171_1.jpg',
-  },
-  {
-    name: 'Pattas Polka Dots - Low Top',
-    color: 'Coral Rose',
-    sku: 'AV00159',
-    price: '720.000',
-    image: 'https://ananas.vn/wp-content/uploads/Pro_AV00159_1.jpg',
-  },
-  {
-    name: 'Basas Workaday - Low Top',
-    color: 'Black',
-    sku: 'AV00149',
-    price: '580.000',
-    image: 'https://ananas.vn/wp-content/uploads/Pro_AV00149_1.jpg',
-  },
-  {
-    name: 'Pattas Polka Dots - High Top',
-    color: 'Offwhite',
-    sku: 'AV00158',
-    price: '750.000',
-    image: 'https://ananas.vn/wp-content/uploads/pro_AV00158_1.jpg',
-  },
-  {
-    name: 'Urbas SC - Low Top',
-    color: 'Aloe Wash',
-    sku: 'AV00187',
-    price: '580.000',
-    image: 'https://ananas.vn/wp-content/uploads/Pro_AV00187_1.jpg',
-  },
-  {
-    name: 'Urbas Bloody - Low Top',
-    color: 'Haute Red',
-    sku: 'A61054',
-    price: '580.000',
-    image: 'https://ananas.vn/wp-content/uploads/pro_urbas_A61054_1.jpg',
-  },
-  {
-    name: 'Urbas SC - Low Top',
-    color: 'Foliage',
-    sku: 'AV00184',
-    price: '580.000',
-    image: 'https://ananas.vn/wp-content/uploads/Pro_AV00184_1.jpg',
-  },
-  {
-    name: 'Urbas SC - High Top',
-    color: 'Fair Orchid',
-    sku: 'AV00193',
-    price: '650.000',
-    image: 'https://ananas.vn/wp-content/uploads/Pro_AV00193_1.jpg',
-  },
-  {
-    name: 'Basas Workaday - High Top',
-    color: 'Real Teal',
-    sku: 'AV00151',
-    price: '650.000',
-    image: 'https://ananas.vn/wp-content/uploads/Pro_AV00151_1.jpg',
-  },
-  {
-    name: 'Basas Bumper Gum NE - Low Top',
-    color: 'Offwhite/Gum',
-    sku: 'AV00008',
-    price: '520.000',
-    image: 'https://ananas.vn/wp-content/uploads/Pro_AV00008_1.jpg',
-  },
-  {
-    name: 'Urbas Ruler - Low Top',
-    color: 'Silver Pink',
-    sku: 'AV00126',
-    price: '590.000',
-    image: 'https://ananas.vn/wp-content/uploads/Pro_AV00126_1.jpg',
-  },
-  {
-    name: 'Vintas Flannel - Low Top',
-    color: 'Cement',
-    sku: 'AV00117',
-    price: '690.000',
-    image: 'https://ananas.vn/wp-content/uploads/pro_AV00117_1.jpg',
-  },
-  {
-    name: 'Track 6 2.Blues - Low Top',
-    color: 'Navy Blue',
-    sku: 'A6T014',
-    image: 'https://ananas.vn/wp-content/uploads/Pro_A6T014_1.jpeg',
-  },
-  {
-    name: 'Vintas Mister - Low Top',
-    color: 'Narcissuede',
-    sku: 'A61039',
-    price: '580.000',
-    image: 'https://ananas.vn/wp-content/uploads/pro_vintas_A61039_1.jpg',
-  },
-  {
-    name: 'Urbas Irrelevant NE - Low Top',
-    color: 'Storm/A.Gold',
-    sku: 'AV00104',
-    price: '650.000',
-    image: 'https://ananas.vn/wp-content/uploads/pro_AV00104_1-1.jpg',
-  },
-  {
-    name: 'Urbas Retrospective - Low Top',
-    color: 'Popular Blue',
-    sku: 'AV00128',
-    price: '650.000',
-    image: 'https://ananas.vn/wp-content/uploads/Pro_AV00128_1.jpg',
-  },
-  {
-    name: 'Urbas SC - Mule',
-    color: 'Fair Orchid',
-    sku: 'AV00199',
-    price: '580.000',
-    image: 'https://ananas.vn/wp-content/uploads/Pro_AV00199_1.jpg',
-  },
-  {
-    name: 'Urbas SC - Low Top',
-    color: 'Fair Orchid',
-    sku: 'AV00190',
-    price: '620.000',
-    image: 'https://ananas.vn/wp-content/uploads/Pro_AV00190_1.jpg',
-  },
-  {
-    name: 'Vintas Jazico - Low Top',
-    color: 'Royal White',
-    sku: 'AV00173',
-    price: '720.000',
-    image: 'https://ananas.vn/wp-content/uploads/Pro_AV00173_1.jpeg',
-  },
-  {
-    name: 'Urbas SC - Mule',
-    color: 'Aloe Wash',
-    sku: 'AV00198',
-    price: '580.000',
-    image: 'https://ananas.vn/wp-content/uploads/Pro_AV00198_1.jpg',
-  },
-  {
-    name: 'Track 6 Triple White - Low Top',
-    color: 'White',
-    sku: 'A6T002',
-    price: '990.000',
-    image: 'https://ananas.vn/wp-content/uploads/pro_track6_A6T002_1.jpg',
-  },
-  {
-    name: 'Basas Bumper Gum NE - Mule',
-    color: 'Offwhite/Gum',
-    sku: 'AV00006',
-    price: '520.000',
-    image: 'https://ananas.vn/wp-content/uploads/Pro_AV00006_1.jpeg',
-  },
-  {
-    name: 'Vintas Mister NE - High Top',
-    color: 'Chocolate Brown',
-    sku: 'AV00101',
-    price: '650.000',
-    image: 'https://ananas.vn/wp-content/uploads/pro_AV00101_1.jpg',
-  },
-  {
-    name: 'Urbas Corluray Mix - Low Top',
-    color: 'Corluray Mix',
-    sku: 'AV00165',
-    price: '610.000',
-    image: 'https://ananas.vn/wp-content/uploads/Pro_AV00165_1.jpeg',
-  },
-  {
-    name: 'Vintas Bleached Sand NE - Low Top',
-    color: 'Beached Sand',
-    sku: 'AV00025',
-    price: '560.000',
-    image: 'https://ananas.vn/wp-content/uploads/Pro_AV00025_1.jpg',
-  },
-  {
-    name: 'Vintas Landforms - Low Top',
-    color: 'Rain Drum',
-    sku: 'AV00176',
-    price: '720.000',
-    image: 'https://ananas.vn/wp-content/uploads/Pro_AV00176_1.jpg',
-  },
-  {
-    name: 'Track 6 Suede Moonphase - Low Top',
-    color: 'Winterize',
-    sku: 'A6T007',
-    price: '990.000',
-    image: 'https://ananas.vn/wp-content/uploads/pro_A6T007_1.jpg',
-  },
-  {
-    name: 'Urbas Love+ 22 - High Top',
-    color: 'Rustic',
-    sku: 'ALP2022',
-    price: '850.000',
-    image: 'https://ananas.vn/wp-content/uploads/Lgbt1080-1.jpg',
-  },
-  {
-    name: 'Track 6 Triple Black - Low Top',
-    color: 'Black',
-    sku: 'A6T003',
-    price: '990.000',
-    image: 'https://ananas.vn/wp-content/uploads/pro_track6_A6T003_1.jpg',
-  },
-  {
-    name: 'Basas Evergreen - Low Top',
-    color: 'Evergreen',
-    sku: 'AV00142',
-    price: '580.000',
-    image: 'https://ananas.vn/wp-content/uploads/pro_AV00142_1.jpg',
-  },
-  {
-    name: 'Pattas Polka Dots - Low Top',
-    color: 'Black',
-    sku: 'AV00157',
-    price: '720.000',
-    image: 'https://ananas.vn/wp-content/uploads/pro_AV00157_1.jpg',
-  },
-  {
-    name: 'Urbas Ruler - Low Top',
-    color: 'Icelandic Blue',
-    sku: 'AV00125',
-    price: '590.000',
-    image: 'https://ananas.vn/wp-content/uploads/Pro_AV00125_1.jpg',
-  },
-  {
-    name: 'Basas RAW - Low Top',
-    color: 'Rustic',
-    sku: 'AV00135',
-    price: '610.000',
-    image: 'https://ananas.vn/wp-content/uploads/pro_AV00135_1.jpg',
-  },
-  {
-    name: 'Track 6 OG - Low Top',
-    color: '70s White',
-    sku: 'A6T001',
-    price: '990.000',
-    image: 'https://ananas.vn/wp-content/uploads/pro_track6_A6T001_1.jpg',
-  },
-  {
-    name: 'Vintas Landforms - Low Top',
-    color: 'Green Moss',
-    sku: 'AV00177',
-    price: '720.000',
-    image: 'https://ananas.vn/wp-content/uploads/Pro_AV00177_1.jpg',
-  },
-  {
-    name: 'Vintas Aunter - Low Top',
-    color: 'Dusty Blue',
-    sku: 'AV00123',
-    price: '690.000',
-    image: 'https://ananas.vn/wp-content/uploads/Pro_AV00123_1.jpg',
-  },
-  {
-    name: 'Urbas SC - Mule',
-    color: 'Dusty Blue',
-    sku: 'AV00202',
-    price: '620.000',
-    image: 'https://ananas.vn/wp-content/uploads/Pro_AV00202_1.jpg',
-  },
-  {
-    name: 'Basas Simple Life NE -  Mule',
-    color: 'Black',
-    sku: 'AV00003',
-    price: '490.000',
-    image: 'https://ananas.vn/wp-content/uploads/Pro_AV00003_1.jpeg',
-  },
-  {
-    name: 'Urbas SC - Low Top',
-    color: 'Dark Purple',
-    sku: 'AV00183',
-    price: '580.000',
-    image: 'https://ananas.vn/wp-content/uploads/Pro_AV00183_1.jpg',
-  },
-  {
-    name: 'Urbas Ruler - Low Top',
-    color: 'Granite Green',
-    sku: 'AV00124',
-    price: '590.000',
-    image: 'https://ananas.vn/wp-content/uploads/Pro_AV00124_1.jpg',
-  },
-];
-const related = document.querySelector('.detail-related_content');
-const renderRelated = productRelated.map((item, index) => {
+const renderSearch = filteredList.map((item, index) => {
   return `
-    <div class="detail-related_item reveal ">
-      <img class="detail-related_img" src=${item.image} alt="error">
-      <div class="detail-related_info">
-          <h3>${item.name}</h3>
-          <span>${item.color}</span>
-          <h3>${item.price}</h3>
-      </div>
-    </div>
-  `;
+        <li class="search-item" onClick="handleSearch(this)" data-search-id = ${item.name} >${item.name}</li>      
+    `;
 });
-related.innerHTML = renderRelated.join('');
 
-//get data-shop localStorage
-const addItem = document.querySelector('.add');
-addItem.addEventListener('click', (event) => {
-  const data = event.currentTarget.dataset.shopItem;
-  let getSave = localStorage.getItem('shop-item');
-  if (getSave) {
-    getSave = JSON.parse(getSave);
+ulList.innerHTML = renderSearch.join('');
+headerSearch.appendChild(ulList);
+const liItem = document.querySelectorAll('.search-item');
+liItem.forEach((item) => {
+  item.style = `
+  font-size: 1.65rem;
+  font-family: Unni;
+  margin: 10px 0;
+  padding: 5px 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  display: -webkit-box;
+  overflow: hidden;
+  text-align: start;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;  
+  `;
+  item.addEventListener('mouseenter', (e) => {
+    //sự kiện kh 'mouseenter' =>khi di chuột vào phần tử
+    item.style.background = '#303030';
+    item.style.transition = '.3s';
+  });
+  item.addEventListener('mouseleave', (e) => {
+    //sự kiện kh 'mouseleave' =>khi di chuột ra khỏi phần tử đó
+    item.style.background = 'none';
+    item.style.transition = '.3s';
+  });
+});
+let isSearch = true;
+const formSearch = document.querySelector('.header-search_form');
+
+headerSearch.addEventListener('click', (e) => {
+  if (isSearch) {
+    ulList.style.display = 'block';
+    formSearch.style = `
+      -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075),
+      0 0 8px rgba(102, 175, 233, 0.6);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075),
+      0 0 8px rgba(102, 175, 233, 0.6);
+      border:1px solid rgba(102, 175, 233, 0.6);
+    `;
+    isSearch = false;
   } else {
-    getSave = [];
+    formSearch.style = `
+    box-sadow: none;
+    border:1px solid #ccc;
+    `;
+    ulList.style.display = 'none';
+    isSearch = true;
   }
-  // console.log(getSave);
-  getSave.push(data);
-  localStorage.setItem('shop-item', JSON.stringify(getSave));
-
-  // const dataList =
-  //   event.target.parentElement.parentElement.parentElement.parentElement;
+});
+// tim kiem
+const inputSearch = document.querySelector('#search');
+inputSearch.addEventListener('input', (e) => {
+  const listItem = document.querySelectorAll('.search-item');
+  const inputValue = e.currentTarget.value.toLowerCase(); // chuyển đổi giá trị value về chữ in thường
+  listItem.forEach((item) => {
+    const itemText = item.textContent.toLowerCase(); // chuyển đổi giá trị để so sánh kết quả tìm kiếm thành chữ in thường
+    // indexOf => tìm kiếm giá trị của 1 chuỗi nếu tìm thấy sẽ trả về vị trí đầu tiên mà giá trị xuất hiện còn nêú ko sẽ trả về -1
+    itemText.indexOf(inputValue) > -1 // điều kiện > -1 là khi tìm thấy sẽ bằng true còn nếu không sẽ trả ra -1 và so sánh nó lớn hơn 1 là khi tìm thấy sẽ render còn không
+      ? (item.style.display = '')
+      : (item.style.display = 'none');
+  });
 });
