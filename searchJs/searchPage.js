@@ -701,9 +701,10 @@ top:100%;
 z-index: 2;
 background: #4c4c4c;
 color:#fff;
-width: 35.5%;
+width: 36.5%;
 border-radius : 5px 5px 5px 4px;
-height: 400px;
+max-height: 400px;
+height: max-content;
 overflow-y: scroll;
 display: none;
 `;
@@ -723,7 +724,6 @@ const renderSearch = filteredList.map((item) => {
 
 ulList.innerHTML = renderSearch.join('');
 headerSearch.appendChild(ulList);
-
 const liItem = document.querySelectorAll('.search-item');
 liItem.forEach((item) => {
   item.style = `
@@ -739,6 +739,7 @@ liItem.forEach((item) => {
   text-align: start;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 1;  
+  
   `;
   item.addEventListener('mouseenter', (e) => {
     //sự kiện kh 'mouseenter' =>khi di chuột vào phần tử

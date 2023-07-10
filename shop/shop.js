@@ -1,5 +1,12 @@
 // const paRam = new URLSearchParams(window.location.search);
 // console.log(paRam.get('shopItem'));
+
+// dieu huong ve danh sach san pham product
+const navProduct = document.querySelector('.shop-footer > button:last-child');
+navProduct.addEventListener('click', () => {
+  window.location.href = '../product/product.html';
+});
+
 const productList = [
   {
     id: null,
@@ -905,12 +912,6 @@ closeAll.addEventListener('click', () => {
   shopItem.forEach((item) => item.remove());
   bg_diveder.forEach((item) => item.remove());
   localStorage.clear();
-});
-
-// dieu huong ve danh sach san pham product
-const navProduct = document.querySelector('.shop-footer > button:last-child');
-navProduct.addEventListener('click', () => {
-  window.location.href = '../product/product.html';
 });
 
 // total đơn hàng

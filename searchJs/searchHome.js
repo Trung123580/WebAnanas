@@ -729,7 +729,7 @@ liItem.forEach((item) => {
   font-size: 1.65rem;
   font-family: Unni;
   margin: 10px 0;
-  padding: 5px 10px;
+  padding: 4px 10px;
   display: flex;
   justify-content: center;
   align-items: center;
