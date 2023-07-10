@@ -241,7 +241,18 @@ function iconClose() {
     });
   });
 }
-
+const fixed = document.querySelector('.fixed-logo');
+const fixed_shop = document.querySelector('.fixed-shop > span');
+function sumProduct() {
+  let saveItem = localStorage.getItem('shop-item');
+  saveItem = JSON.parse(saveItem);
+  const newSaveItem = new Set(saveItem); // lọc các value giống nhau
+  fixed_shop.textContent = Array.from(newSaveItem).length; // convert sang mảng
+}
+sumProduct();
+fixed.addEventListener('click', () => {
+  window.location.href = './shop/shop.html';
+});
 function App() {
   renderForm();
   showPass();
