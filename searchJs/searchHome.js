@@ -781,7 +781,7 @@ inputSearch.addEventListener('input', (e) => {
   listItem.forEach((item) => {
     const itemText = item.textContent.toLowerCase(); // chuyển đổi giá trị để so sánh kết quả tìm kiếm thành chữ in thường
     // indexOf => tìm kiếm giá trị của 1 chuỗi nếu tìm thấy sẽ trả về vị trí đầu tiên mà giá trị xuất hiện còn nêú ko sẽ trả về -1
-    itemText.indexOf(inputValue) > -1 // điều kiện > -1 là khi tìm thấy sẽ bằng true còn nếu không sẽ trả ra -1 và so sánh nó lớn hơn 1 là khi tìm thấy sẽ render còn không
+    itemText.indexOf(inputValue) > -1 // điều kiện > -1 là khi tìm thấy sẽ bằng 0(true) và so sánh nó lớn hơn -1 là khi tìm thấy sẽ render còn  nếu không sẽ trả ra -1
       ? (item.style.display = '')
       : (item.style.display = 'none');
   });

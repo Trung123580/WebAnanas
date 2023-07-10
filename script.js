@@ -53,7 +53,7 @@ function showPass() {
 // random-login-register
 function loginRegister() {
   const form_menu1 = document.querySelector('.menu-right');
-  const form_menu2 = document.querySelector('.menu-right-register');
+  const form_menu2 = document.querySelector('.form-register');
   const change_form = document.querySelector('.change-form');
 
   change_form.addEventListener('click', () => {
@@ -66,6 +66,7 @@ function loginRegister() {
     form_menu2.style.display = 'none';
   });
 }
+//
 
 // icon-bar   // show-menu-mobile
 function barMenu() {

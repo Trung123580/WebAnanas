@@ -1229,10 +1229,17 @@ const renderRelated = productRelated.map((item, index) => {
   `;
 });
 related.innerHTML = renderRelated.join('');
-
 //get data-shop localStorage
 const addItem = document.querySelector('.add');
+let isAddItem = true;
 addItem.addEventListener('click', (event) => {
+  if (isAddItem) {
+    event.target.textContent = 'ĐÃ THÊM';
+    isAddItem = false;
+  } else {
+    event.target.textContent = 'THÊM VÀO GIỎ HÀNG';
+    isAddItem = true;
+  }
   const data = event.currentTarget.dataset.shopItem;
   let getSave = localStorage.getItem('shop-item');
   if (getSave) {

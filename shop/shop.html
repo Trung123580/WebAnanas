@@ -36,7 +36,7 @@
                         </a>
                     </li>
                     <li class="header-list_item">
-                        <a href="#">
+                        <a href="../shop/shop.html">
                             <img src="../img/icon-shop.png" alt="">
                         </a>
                     </li>
@@ -166,61 +166,68 @@
                 </div>
             </section>
             <section class="form">
-                <form action="#" class="menu">
-                    <div class="menu-left">
-                        <img src="../logo/Logo_Ananas.svg" alt="">
-                    </div>
-                    <div class="menu-right">
-                        <img class="close" src="../logo/icon-close.svg" alt="">
+                <div class="dis-flex">
+                    <form action="#" method="post" class="menu">
+                        <div class="menu-left">
+                            <img src="../logo/Logo_Ananas.svg" alt="">
+                        </div>
+                        <div class="menu-right">
+                            <img class="close" src="../logo/icon-close.svg" alt="">
 
-                        <h2>Đăng Nhập</h2>
-                        <div class="input-right">
-                            <input type="text" required="required">
-                            <span>Tên Đăng Nhập</span>
-                            <i></i>
+                            <h2>Đăng Nhập</h2>
+                            <div class="input-right">
+                                <input type="text" name="user-name" required>
+                                <span>Tên Đăng Nhập</span>
+                                <i></i>
+                            </div>
+                            <div class="input-right">
+                                <input type="password" name="user-password" class="password" required>
+                                <span>Mật Khẩu</span>
+                                <img class="check-password" src="../logo/eye-off-svgrepo-com.svg" alt="">
+                                <img class="check-password-2" src="../logo/eye-svgrepo-com.svg" alt="">
+                                <i></i>
+                            </div>
+                            <div class="links">
+                                <a href="#">Quên Mật Khẩu</a>
+                                <a href="#" class="change-form">Đăng ký</a>
+                            </div>
+                            <button type="submit" value="Đăng Nhâp" class="login">Đăng Nhâp</button>
                         </div>
-                        <div class="input-right">
-                            <input type="password" class="password" required="required">
-                            <span>Mật Khẩu</span>
-                            <img class="check-password" src="../logo/eye-off-svgrepo-com.svg" alt="">
-                            <img class="check-password-2" src="../logo/eye-svgrepo-com.svg" alt="">
-                            <i></i>
+                    </form>
+                    <form action="" method="post" class="form-register">
+                        <div class="menu-left">
+                            <img src="../logo/Logo_Ananas.svg" alt="">
                         </div>
-                        <div class="links">
-                            <a href="#">Quên Mật Khẩu</a>
-                            <a href="#" class="change-form">Đăng ký</a>
+                        <div class="menu-right menu-right-register">
+                            <img class="close" src="../logo/icon-close.svg" alt="">
+                            <h2>Đăng Ký</h2>
+                            <div class="input-right">
+                                <input type="text" name="user-name" required>
+                                <span>Tên Đăng Ký</span>
+                                <i></i>
+                            </div>
+                            <div class="input-right">
+                                <input type="password" name="user-password" class="password" required>
+                                <span>Mật Khẩu</span>
+                                <img class="check-password" src="../logo/eye-off-svgrepo-com.svg" alt="">
+                                <img class="check-password-2 " src="../logo/eye-svgrepo-com.svg" alt="">
+                                <i></i>
+                            </div>
+                            <div class="input-right">
+                                <input type="password" name="user-password" class="password" required>
+                                <span>Nhập Mật Khẩu</span>
+                                <img class="check-password " src="../logo/eye-off-svgrepo-com.svg" alt="">
+                                <img class="check-password-2 " src="../logo/eye-svgrepo-com.svg" alt="">
+                                <i></i>
+                            </div>
+                            <div class="links">
+                                <a href="#">Quên Mật Khẩu</a>
+                                <a href="#" class="change-form user-2">Đăng Nhập</a>
+                            </div>
+                            <button type="submit" value="Đăng Ký" class="login">Đăng Ký</button>
                         </div>
-                        <button type="submit" value="Đăng Nhâp" class="login">Đăng Nhâp</button>
-                    </div>
-                    <div class="menu-right menu-right-register">
-                        <img class="close" src="../logo/icon-close.svg" alt="">
-                        <h2>Đăng Ký</h2>
-                        <div class="input-right">
-                            <input type="text" required="required">
-                            <span>Tên Đăng Ký</span>
-                            <i></i>
-                        </div>
-                        <div class="input-right">
-                            <input type="password" class="password" required="required">
-                            <span>Mật Khẩu</span>
-                            <img class="check-password" src="../logo/eye-off-svgrepo-com.svg" alt="">
-                            <img class="check-password-2 " src="../logo/eye-svgrepo-com.svg" alt="">
-                            <i></i>
-                        </div>
-                        <div class="input-right">
-                            <input type="password" class="password" required="required">
-                            <span>Nhập Mật Khẩu</span>
-                            <img class="check-password " src="../logo/eye-off-svgrepo-com.svg" alt="">
-                            <img class="check-password-2 " src="../logo/eye-svgrepo-com.svg" alt="">
-                            <i></i>
-                        </div>
-                        <div class="links">
-                            <a href="#">Quên Mật Khẩu</a>
-                            <a href="#" class="change-form user-2">Đăng Nhập</a>
-                        </div>
-                        <button type="submit" value="Đăng Ký" class="login">Đăng Ký</button>
-                    </div>
-                </form>
+                    </form>
+                </div>
             </section>
             <section class="blur"></section>
 

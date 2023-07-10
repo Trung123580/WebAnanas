@@ -904,6 +904,7 @@ const closeAll = document.querySelector('.shop-footer > button:first-child');
 closeAll.addEventListener('click', () => {
   shopItem.forEach((item) => item.remove());
   bg_diveder.forEach((item) => item.remove());
+  localStorage.clear();
 });
 
 // dieu huong ve danh sach san pham product
@@ -929,6 +930,7 @@ total.forEach((item) => {
     [];
   }
 });
+console.log(obj);
 // tinh tổng giá tiền
 const finaTotal = obj.reduce((value, item) => {
   return (value += item);
