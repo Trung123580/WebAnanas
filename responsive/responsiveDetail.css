@@ -22,6 +22,9 @@
       opacity: 0;
       top: 0%;
     }
+    70% {
+      opacity: 0;
+    }
     100% {
       opacity: 1;
       top: 100%;

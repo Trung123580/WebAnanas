@@ -737,7 +737,7 @@ liItem.forEach((item) => {
   overflow: hidden;
   text-align: start;
   -webkit-box-orient: vertical;
-  -webkit-line-clamp: 1;  
+  -webkit-line-clamp: 1;
   `;
   item.addEventListener('mouseenter', (e) => {
     //sự kiện kh 'mouseenter' =>khi di chuột vào phần tử
@@ -773,7 +773,7 @@ headerSearch.addEventListener('click', (e) => {
     isSearch = true;
   }
 });
-// tim kiem
+// tim kiem search
 const inputSearch = document.querySelector('#search');
 inputSearch.addEventListener('input', (e) => {
   const listItem = document.querySelectorAll('.search-item');

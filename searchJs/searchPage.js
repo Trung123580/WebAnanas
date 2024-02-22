@@ -739,7 +739,6 @@ liItem.forEach((item) => {
   text-align: start;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 1;  
-  
   `;
   item.addEventListener('mouseenter', (e) => {
     //sự kiện kh 'mouseenter' =>khi di chuột vào phần tử

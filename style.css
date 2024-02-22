@@ -644,7 +644,6 @@
   opacity: 0.8;
 }
 .icon-bar {
-  /* border: 1px solid; */
   display: flex;
   flex-direction: column;
   justify-content: center;

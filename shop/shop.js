@@ -931,7 +931,6 @@ total.forEach((item) => {
     [];
   }
 });
-console.log(obj);
 // tinh tổng giá tiền
 const finaTotal = obj.reduce((value, item) => {
   return (value += item);
